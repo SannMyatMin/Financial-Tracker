@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Tracker-Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/adminDashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="svg/piggy-bank-svgrepo-com.svg" alt="Admin" class="logo-pic">
+                <h3>Finance Tracker</h3>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><i class="fas fa-home"></i> Dashboard</li>
+                <li><i class="fas fa-chart-bar"></i> Analytics</li>
+                <li><i class="fas fa-cog"></i> Settings</li>
+                <li><i class="fas fa-sign-out-alt"></i> Logout</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-icons">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Profile Section -->
+                <section class="profile-section">
+                    <h2>Admin Dashboard</h2>
+                    <div class="profile-card">
+                        <img src="svg/default-photo.svg" alt="Profile Picture">
+                        <div class="profile-info">
+                            <h3>John Doe</h3>
+                            <p>Senior Administrator</p>
+                            <p>john.doe@example.com</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h4>Total Users</h4>
+                            <p id="totalUsers">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="stat-info">
+                            <h4>Revenue</h4>
+                            <p id="revenue">$0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tasks"></i>
+                        <div class="stat-info">
+                            <h4>Tasks</h4>
+                            <p id="tasks">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-comments"></i>
+                        <div class="stat-info">
+                            <h4>Messages</h4>
+                            <p id="messages">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <section class="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list" id="activityList">
+                        <!-- Activity items will be added here by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="/js/adminDashboard.js"></script>
+</body>
+</html>

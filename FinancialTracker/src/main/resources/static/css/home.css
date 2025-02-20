@@ -1,0 +1,206 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed; /* Fix the navbar at the top */
+    top: 0; /* Position it at the top of the viewport */
+    left: 0; /* Align it to the left */
+    width: 100%; /* Make it span the full width of the page */
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it stays above other content */
+  }
+  
+  .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .logo .title {
+    margin-left: 8px;
+    font-size: 44px;
+    font-weight: bold;
+    color: #111827;
+    line-height: 1;
+  }
+  
+  .nav-buttons .btn {
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .nav-buttons .login {
+    background: none;
+    color: #4b5563;
+  }
+  
+  .nav-buttons .login:hover {
+    color: rgb(0, 255, 34);
+  }
+  
+  .nav-buttons .signup {
+    background: #111827;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .nav-buttons .signup:hover {
+    background: hsl(113, 85%, 38%);
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 6rem 2rem; /* Reduced top padding from 4rem to 2rem */
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #111827;
+  }
+  
+  .hero-text {
+    margin-top: 16px;
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btn.get-started {
+    width: 160px;
+    height: 50px;
+    margin-top: 24px;
+    padding: 12px 24px;
+    background: #111827;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn.get-started:hover {
+    background: hsl(187, 76%, 36%);
+  }
+  
+  /* Features Section */
+  .features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 4rem;
+
+  }
+  
+  .feature {
+    background: white;
+    padding: 3.5rem;
+    height: 190px;
+    width: 250px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature .icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .feature h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #111827;
+  }
+  
+  .feature p {
+    color: #6b7280;
+    font-size: 1rem;
+  }
+  
+  .icon.piggy-bank {
+    background: url('svg/piggy-bank-svgrepo-com.svg') no-repeat center;
+    background-size: contain;
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Financial Insights Section */
+.financial-insights {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.financial-image {
+  width: 45%;
+  height: 20%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.insights-text {
+  width: 50%;
+  text-align: left;
+}
+
+.insights-text h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.insights-text p {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .financial-insights {
+    flex-direction: column;
+  }
+
+  .financial-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .insights-text {
+    width: 100%;
+  }
+}
+  
+  
+  @media (min-width: 768px) {
+    .features {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  

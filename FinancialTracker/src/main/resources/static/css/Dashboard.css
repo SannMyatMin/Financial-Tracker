@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
+  }
+  
+  #current-date {
+    font-size: 1.5rem;
+    color: #38df16;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: #ffffff;
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .brand {
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .nav {
+    padding: 10px 0;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #f9f9f9;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .nav-item:hover {
+    background: #f0f0f0;
+  }
+  
+  .nav-item.active {
+    margin-left: 10px;
+    background: hsla(0, 3%, 94%, 0.973);
+    font-weight: bold;
+    width: 230px;
+  }
+
+  .nav-item {
+    margin-left: 10px;
+    background: #ffffff;
+    font-weight: bold;
+    width: 230px;
+  }
+  
+  .icon {
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+
+  .s-icon{
+    margin-top: 0px;
+    margin-right: 5px;
+  }
+  
+  /* Main Content */
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15.72px;
+    background: white;
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 300px;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+  
+  .profile {
+    display: flex;
+    align-items: center; /* Vertical alignment */
+  }
+
+  .profile-trigger {
+    display: flex;
+    align-items: center; /* Vertical alignment for profile pic and username */
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  
+  /* Content */
+  .content {
+    padding: 20px;
+  }
+  
+  .stats {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
+  }
+  
+  .stat-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .green {
+    color: green;
+  }
+  
+  .red {
+    color: red;
+  }
+  
+  /* Transactions */
+  .transactions {
+    margin-top: 20px;
+  }
+  
+  .transaction {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: white;
+  }
+  
+  .amount {
+    font-weight: bold;
+  }
+  

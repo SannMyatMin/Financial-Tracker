@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinanceTracker-Home</title>
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <span class="icon piggy-bank"><img class="icon" src="/svg/piggy-bank-svgrepo-com.svg" alt="Icon" style="height: 50px; width: 50px;"/></span>
+        <span class="title" style="font-size: 30px;">Finance Tracker</span>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn login" onclick="window.location.href='SignIn'">Log In</button>
+        <button class="btn signup" onclick="window.location.href='SignUp'">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main class="hero">
+    <div class="container text-center">
+      <h1 class="hero-title">Take Control of Your Finances</h1>
+      <p class="hero-text">
+        Track your expenses, monitor your income, and achieve your financial goals with our simple and intuitive financial tracking tool.
+      </p>
+      <button class="btn get-started">
+        <span style="font-size: 20px;">Get Started</span>
+      </button>
+    </div>
+
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="feature">
+        <span class="icon line-chart"></span>
+        <img class="icon" src="svg/dollar-sign.svg" alt="Icon" />
+        <h3>Expense Tracking</h3>
+        <p>Keep track of every penny with our intuitive expense tracking system.</p>
+      </div>
+      <div class="feature">
+        <span class="icon line-chart"></span>
+        <img class="icon" src="svg/shopping-bag.svg" alt="Icon" />
+        <h3>Budget Management</h3>
+        <p>Set and manage budgets for different categories to stay on top of your spending.</p>
+      </div>
+      <div class="feature">
+        <span class="icon user-circle"></span>
+        <img class="icon" src="svg/database.svg" alt="Icon" />
+        <h3>Personal Dashboard</h3>
+        <p>View your financial health at a glance with personalized insights and reports.</p>
+      </div>
+    </section>
+
+    
+    <div class="financial-insights">
+      <img src="https://miro.medium.com/v2/resize:fit:1400/1*_4T1Y9J4QF8AXLsFEh7d2g.png" alt="Financial Growth" class="financial-image" />
+      <div class="insights-text">
+        <h2>Why Financial Planning Matters</h2>
+        <p>
+          Financial planning is the cornerstone of a secure future. It allows you to set clear goals, manage your resources effectively, and make informed decisions that align with your long-term objectives.
+        </p>
+        <p>
+          Whether you're saving for retirement, planning for a major purchase, or managing debt, a solid financial plan provides clarity and confidence. Our tools are designed to help you stay on track and achieve financial success.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/home.js"></script>
+</body>
+</html>

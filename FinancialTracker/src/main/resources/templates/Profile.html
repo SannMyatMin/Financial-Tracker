@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Form</title>
+    <link rel="stylesheet" href="/css/Profile.css">
+</head>
+<body>
+
+     <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <span class="icon piggy-bank"><img class="icon" src="svg/piggy-bank-svgrepo-com.svg" alt="Icon" style="height: 48px; width: 48px;"/></span>
+        <span class="title" style="font-size: 40px;">Finance Tracker</span>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container">
+        <div class="profile-card">
+            <h2>Profile Details</h2>
+            
+            <form id="profileForm">
+                <div class="form-layout">
+                    <!-- Profile Image Section -->
+                    <div class="profile-image-container">
+                        <div class="profile-image-wrapper">
+                            <img id="profileImage" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200&h=200" alt="Profile">
+                            <label for="imageUpload" class="upload-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                            </label>
+                            <input type="file" id="imageUpload" accept="image/*" hidden>
+                        </div>
+                    </div>
+
+                    <!-- Input Fields Section -->
+                    <div class="input-fields">
+                        <!-- Name Input -->
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required placeholder="John Doe">
+                        </div>
+
+                        <!-- Email Input -->
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-icon">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <input type="email" id="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <!-- Monthly Income -->
+                        <div class="form-group">
+                            <label for="income">Monthly Income</label>
+                            <div class="input-icon">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                                <input type="number" id="income" required placeholder="5000">
+                            </div>
+                        </div>
+
+                        <!-- Monthly Expenses -->
+                        <div class="form-group">
+                            <label for="expenses">Monthly Expenses</label>
+                            <div class="input-icon">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 6h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path>
+                                    <path d="M12 10v4"></path>
+                                    <path d="M15 11v2"></path>
+                                    <path d="M9 11v2"></path>
+                                </svg>
+                                <input type="number" id="expenses" required placeholder="3000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="submit-button-container">
+                    <button type="submit" id="submitBtn">Save Profile</button>
+                </div>
+            </form>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message hidden">
+                Profile has been successfully updated!
+            </div>
+        </div>
+    </div>
+    <script src="/js/Profile.js"></script>
+</body>
+</html>

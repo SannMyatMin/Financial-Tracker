@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinanceTracker-Dashboard</title>
+  <link rel="stylesheet" href="/css/Dashboard.css" />
+  <link rel="stylesheet" href="/css/profileBox.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span><img class="icon" src="svg/piggy-bank-svgrepo-com.svg" alt="Icon" style="height: 40px; width: 40px;"/>FinanceTracker</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" onclick="setActiveTab('dashboard')">
+          <img class="icon" src="svg/document-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+          Dashboard
+        </button>
+        <button class="nav-item" onclick="setActiveTab('transactions'); window.location.href='Transaction';">
+          <img class="icon" src="svg/clipboard-add-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+          Add Transaction
+      </button>
+        <button class="nav-item" onclick="setActiveTab('reports')">
+          <img class="icon" src="svg/report-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+          Reports
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="search">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="search-input"
+          />
+        </div>
+        <div class="profile"  >
+          <span class="icon"><img src="svg/bell-svgrepo-com.svg" alt="Icon" style="height: 25px; width: 25px;"/></span>
+          <div class="profile-trigger">
+          <img class="profile-pic" src="svg/default-photo.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+          <span class="username"> John Doe</span>
+          </div>
+        </div>
+      </header>
+ 
+    <div class="profile-box" id="profileBox">
+      <div class="profile-header">
+          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&auto=format&fit=crop&q=80" 
+               alt="Profile Picture" 
+               class="profile-pic">
+          <div class="profile-actions">
+              <button class="edit-btn">Edit</button>
+              <button class="logout-btn">Logout</button>
+          </div>
+      </div>
+      <div class="profile-info">
+          <h3 class="profile-name">John Doe</h3>
+          <p class="profile-email">john.doe@example.com</p>
+      </div>
+  </div>
+
+      <!-- Dashboard Content -->
+      <section class="content">
+        <div id="current-date"></div>
+        <!-- Quick Stats -->
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span>Total Balance</span>
+              <img class="s-icon" src="svg/us-dollar-coin-color-icon.svg" alt="Icon" style="height: 40px; width: 40px;"/>
+            </div>
+            <h3>$24,562.00</h3>
+            <p class="stat-change green">+2.45%</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span>Monthly Income</span>
+              <img class="s-icon" src="svg/money-notes-receiving-dollar-color-icon.svg" alt="Icon" style="height: 40px; width: 40px;"/>
+            </div>
+            <h3>$8,350.00</h3>
+            <p class="stat-change green">+1.62%</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span>Monthly Expenses</span>
+              <img class="s-icon" src="svg/dollar-money-circle.svg" alt="Icon" style="height: 40px; width: 40px;"/>
+            </div>
+            <h3>$5,240.00</h3>
+            <p class="stat-change red">-0.82%</p>
+          </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="transactions">
+          <h2>Recent Transactions</h2>
+          <div class="transaction">
+            <div class="transaction-info">
+              <img class="icon" src="svg/shopping-card-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+              <div>
+                <p>Grocery Shopping</p>
+                <small>Today, 2:30 PM</small>
+              </div>
+            </div>
+            <span class="amount red">-120.50</span>
+          </div>
+          <div class="transaction">
+            <div class="transaction-info">
+              <img class="icon" src="svg/money-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+              <div>
+                <p>Salary Deposit</p>
+                <small>Yesterday</small>
+              </div>
+            </div>
+            <span class="amount green">+3500.00</span>
+          </div>
+          <div class="transaction">
+            <div class="transaction-info">
+              <img class="icon" src="svg/rent-icon.svg" alt="Icon" style="height: 35px; width: 35px;"/>
+              <div>
+                <p>Rent Payment</p>
+                <small>Yesterday</small>
+              </div>
+            </div>
+            <span class="amount red">-1200.00</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/js/Dashboard.js"></script>
+  <script src="/js/profileBox.js"></script>
+</body>
+</html>

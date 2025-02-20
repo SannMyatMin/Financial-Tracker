@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinanceTracker-Transaction</title>
+  <link rel="stylesheet" href="/css/Transaction.css" />
+  <script src="/js/Transaction.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span><img class="icon" src="/svg/piggy-bank-svgrepo-com.svg" alt="Icon" style="height: 40px; width: 40px;"/>FinanceTracker</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item" onclick="window.location.href='Dashboard';">
+          <img class="icon" src="/svg/document-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+          Dashboard
+        </button>
+        <button class="nav-item active" onclick="setActiveTab('transactions')">
+          <img class="icon" src="/svg/clipboard-add-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+          Add Transaction
+        </button>
+        <button class="nav-item" onclick="setActiveTab('reports')">
+          <img class="icon" src="/svg/report-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+          Reports
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="profile">
+          <span class="icon"><img src="/svg/bell-svgrepo-com.svg" alt="Icon" style="height: 25px; width: 25px;"/></span>
+          <img class="profile-pic" src="/svg/default-photo.svg" alt="Icon" style="height: 30px; width: 30px;"/>
+          <span class="username"> John Doe</span>
+        </div>
+      </header>
+
+      <!-- Transaction Content -->
+      <section class="content">
+        <div class="whole-space">
+            <div class="form-image-container">
+                <div class="modal" id="transactionModal">
+                    <div class="modal-content">
+                        <h2>Add New Transaction</h2>
+                        <form id="transactionForm">
+                            <div class="form-group">
+                                <label>Type</label>
+                                <div class="type-selector">
+                                  <button type="button" class="active" data-type="expense">Expense</button>
+                                  <button type="button" data-type="income">Income</button>
+                               </div>
+                              
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">Amount</label>
+                                <input type="number" id="amount" required placeholder="Enter amount" step="0.01" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category" required>
+                                    <option value="">Select category</option>
+                                </select>
+                                <input type="text" id="customCategory" placeholder="Enter custom category" class="hidden">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <input type="text" id="description" required placeholder="Enter description">
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="cancel" id="cancelTransaction">Cancel</button>
+                                <button type="submit" class="submit">Add Transaction</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="image-container">
+                  <img src="/svg/CoinBag-Transaction.png" alt="">
+              </div>
+            </div>
+        </div>
+    </section>
+    </main>
+  </div>
+
+</body>
+</html>
