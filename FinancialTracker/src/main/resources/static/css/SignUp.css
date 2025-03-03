@@ -5,7 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Center vertically */
+  min-height: 100vh;
   background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -15,41 +15,44 @@ body {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
   background-color: #ffffff;
-  padding: 20px; /* Adjusted padding for better proportion */
-  width: 90%; /* More responsive width */
-  max-width: 380px; /* Increased max width */
-  border-radius: 10px; /* Slightly sharper corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin-top: 60px; /* Added margin to account for the fixed navbar */
+  padding: 15px 20px;
+  padding-left: 25px;
+  padding-right: 50px;
+  width: 90%;
+  max-width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
 }
 
-/* Placeholder Font */
-::placeholder {
-  font-family: inherit;
+/* Input Group Container */
+.input-group {
+  margin-bottom: 4px;
+  width: 100%;
 }
 
-/* Submit Button Alignment */
-.form button {
-  align-self: flex-end;
-}
-
-/* Label Styles */
-.flex-column > label {
-  color: #151717;
-  font-weight: 600;
+/* Error Message Styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 2px;
+  margin-left: 8px;
+  display: block;
+  min-height: 14px;
 }
 
 /* Input Form Container */
 .inputForm {
   border: 1.5px solid #ecedec;
-  border-radius: 8px; /* Reduced border radius */
-  height: 40px; /* Slightly shorter inputs */
+  border-radius: 8px;
+  height: 38px;
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  padding: 0 10px;
   transition: 0.2s ease-in-out;
+  width: 100%;
 }
 
 /* Input Field */
@@ -57,9 +60,9 @@ body {
   margin-left: 10px;
   border-radius: 8px;
   border: none;
-  width: 85%;
+  width: 90%;
   height: 70%;
-  font-size: 14px; /* Consistent text size */
+  font-size: 14px;
 }
 
 /* Focus Styles */
@@ -80,7 +83,7 @@ body {
   justify-content: space-between;
 }
 
-.flex-row > div > label {
+.flex-row>div>label {
   font-size: 14px;
   color: black;
   font-weight: 400;
@@ -98,14 +101,14 @@ body {
 
 /* Submit Button */
 .button-submit {
-  margin: 15px 0 10px 0; /* Reduced vertical margin */
+  margin: 8px 0;
   background-color: #151717;
   border: none;
   color: white;
-  font-size: 14px; /* Slightly smaller font */
+  font-size: 14px;
   font-weight: 500;
-  border-radius: 8px; /* Matches input radius */
-  height: 40px; /* Reduced button height */
+  border-radius: 8px;
+  height: 38px;
   width: 100%;
   cursor: pointer;
   transition: 0.2s background-color ease-in-out;
@@ -120,14 +123,14 @@ body {
   text-align: center;
   color: black;
   font-size: 14px;
-  margin: 5px 0;
+  margin: 3px 0;
 }
 
 /* General Button */
 .btn {
-  margin-top: 10px;
+  margin-top: 8px;
   width: 100%;
-  height: 40px; /* Reduced height */
+  height: 38px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -146,12 +149,12 @@ body {
 
 /* Navigation Bar Styles */
 .navbar {
-  position: fixed; /* Fix the navbar at the top */
-  top: 10px; /* Position it at the top of the viewport */
-  left: 0; /* Align it to the left */
-  width: 100%; /* Make it span the full width of the page */
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure it stays above other content */
+  z-index: 1000;
 }
 
 .navbar .container {
@@ -159,20 +162,21 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  justify-content: center; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically */
-  height: 60px; /* Reduced height for a more compact navbar */
+  justify-content: center;
+  align-items: center;
+  height: 60px;
 }
 
 .logo {
   display: flex;
-  align-items: center; /* Center align the logo and title vertically */
-  gap: 8px; /* Add some space between the icon and the title */
+  align-items: center;
+  gap: 8px;
 }
 
 .logo .title {
-  font-size: 24px; /* Reduced font size for a more balanced look */
+  font-size: 24px;
   font-weight: bold;
   color: #111827;
   line-height: 1;
 }
+

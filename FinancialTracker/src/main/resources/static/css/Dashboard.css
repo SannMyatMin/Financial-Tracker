@@ -80,13 +80,18 @@ body {
     flex-direction: column;
   }
   
-  .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 15.72px;
-    background: white;
-    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
-  }
+ .header {
+   display: flex;
+   height: 40px;
+   /* Use min-height instead of height */
+   justify-content: flex-end;
+   /* Align profile to the right */
+   align-items: center;
+   /* Center content vertically */
+   padding: 15.72px;
+   background: white;
+   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+ }
   
   .search-input {
     padding: 10px;

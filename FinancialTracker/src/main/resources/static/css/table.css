@@ -1,0 +1,101 @@
+.transaction-table {
+    width: 100%;
+    max-width: 1060px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.transaction-table thead {
+    background: linear-gradient(135deg, #5a67a0 0%, #b9a7c9 100%);
+    color: white;
+}
+
+.transaction-table th {
+    padding: 1.6rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.transaction-table td {
+    padding: 1rem 1.5rem;
+    color: #444;
+    
+    transition: all 0.2s ease;
+}
+
+.transaction-table tbody tr:nth-child(even) {
+    background-color: #f9f9ff;
+}
+
+.transaction-table tbody tr:hover {
+    background-color: #f5f5ff;
+    transform: translateX(4px);
+}
+
+.transaction-table th:first-child {
+    border-radius: 12px 0 0 0;
+}
+
+.transaction-table th:last-child {
+    border-radius: 0 12px 0 0;
+}
+
+/* Status Badges */
+.status-paid,
+.status-pending {
+    /* Common styles */
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    min-width: 60px;
+
+    /* Add spacing */
+    margin-top: 5px;
+    /* Adjust as needed */
+    margin-bottom: 5px;
+    /* Adjust as needed */
+}
+/* Specific color styles */
+.status-paid {
+    background-color: #e8faf1;
+    color: #34c759;
+    border: 1px solid #b8f1ce;
+}
+
+.status-pending {
+    background-color: #fff4e5;
+    color: #ff9500;
+    border: 1px solid #ffd8b2;
+    height: 10px;
+}
+
+/* Amount Alignment */
+.transaction-table td:nth-child(4) {
+    font-weight: 600;
+    color: #2d3748;
+    text-align: right;
+}
+
+/* Hover effect */
+.transaction-table tbody tr {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.transaction-table tbody tr:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}

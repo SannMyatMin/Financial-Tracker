@@ -139,12 +139,12 @@ body {
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.4rem;
     color: var(--text-secondary);
     font-weight: 500;
 }
@@ -167,15 +167,14 @@ body {
 }
 
 .type-selector button.active {
-  background-color: #ef4444; /* Red for expense */
+  background-color: #ef4444;
+  /* Red for expense */
   color: white;
-  border-color: #e2e8f0;
 }
 
-.type-selector button.active2 {
-  background-color: #22c55e; /* Green for income */
-  color: white;
-  border-color: #e2e8f0;
+.type-selector button.active[data-type="income"] {
+  background-color: #22c55e;
+  /* Green for income */
 }
 
 .type-selector button {
@@ -242,18 +241,6 @@ input:focus, select:focus {
     border-color: var(--danger) !important;
 }
 
-.notification {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background-color: var(--success);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: slideIn 0.3s ease-out;
-    z-index: 1000;
-}
 
 .hidden {
     display: none;
@@ -275,7 +262,7 @@ input:focus, select:focus {
 }
 
 .image-container img {
-  margin-top: 30px;
+  margin-top: 27px;
   margin-right: 0px;
   width: 500px;
   height: 600px;

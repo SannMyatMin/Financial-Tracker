@@ -48,5 +48,9 @@ public class Directory
         return "Transaction";
     }
 
-
+    @GetMapping("/Record")
+    public String Record()
+    {
+        return "Record";
+    }
 }

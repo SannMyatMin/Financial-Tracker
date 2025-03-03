@@ -4,16 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const transactionForm = document.getElementById('transactionForm');
     const typeButtons = document.querySelectorAll('.type-selector button');
     const amountInput = document.getElementById('amount');
-    const categorySelect = document.getElementById('category');
-    const customCategoryInput = document.getElementById('customCategory');
     const descriptionInput = document.getElementById('description');
+    const transactionTypeInput = document.getElementById("transactionType"); // Hidden input
 
-    let selectedType = 'expense';
+    let selectedType = 'expenses';
 
     // Open modal automatically
     modal.classList.add('active');
     transactionForm.reset();
-    setTransactionType('expense');
+    setTransactionType('expenses');
     amountInput.focus();
 
     // Hide modal
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('active');
         transactionForm.reset();
         clearValidationErrors();
-        customCategoryInput.classList.add('hidden');
     }
 
     cancelBtn.addEventListener('click', closeModal);
@@ -35,61 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle transaction type selection
     function setTransactionType(type) {
-        selectedType = type;
+        transactionTypeInput.value = type;
         typeButtons.forEach(btn => {
-            btn.classList.remove('active', 'active2');
+            btn.classList.remove('active');
             if (btn.dataset.type === type) {
-                btn.classList.add(type === 'expense' ? 'active' : 'active2');
+                btn.classList.add('active');
             }
         });
-        updateCategoryOptions(type);
     }
 
     typeButtons.forEach(button => {
         button.addEventListener('click', () => {
             setTransactionType(button.dataset.type);
         });
-    });
-
-    function updateCategoryOptions(type) {
-        const incomeCategories = [
-            { value: 'salary', label: 'Salary' },
-            { value: 'freelance', label: 'Freelance' },
-            { value: 'investments', label: 'Investments' },
-            { value: 'other_income', label: 'Other' }
-        ];
-
-        const expenseCategories = [
-            { value: 'groceries', label: 'Groceries' },
-            { value: 'rent', label: 'Rent' },
-            { value: 'utilities', label: 'Utilities' },
-            { value: 'entertainment', label: 'Entertainment' },
-            { value: 'transport', label: 'Transport' },
-            { value: 'healthcare', label: 'Healthcare' },
-            { value: 'shopping', label: 'Shopping' },
-            { value: 'other_expense', label: 'Other' }
-        ];
-
-        const categories = type === 'income' ? incomeCategories : expenseCategories;
-        
-        categorySelect.innerHTML = `
-            <option value="">Select category</option>
-            ${categories.map(cat => `
-                <option value="${cat.value}">${cat.label}</option>
-            `).join('')}
-        `;
-
-        customCategoryInput.classList.add('hidden');
-        customCategoryInput.value = '';
-    }
-
-    // Handle category selection change
-    categorySelect.addEventListener('change', () => {
-        const isOther = categorySelect.value === 'other_income' || categorySelect.value === 'other_expense';
-        customCategoryInput.classList.toggle('hidden', !isOther);
-        if (isOther) {
-            customCategoryInput.focus();
-        }
     });
 
     function clearValidationErrors() {
@@ -125,17 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             isValid = false;
         }
 
-        if (!categorySelect.value) {
-            showError(categorySelect, 'Please select a category');
-            isValid = false;
-        }
-
-        const isOther = categorySelect.value === 'other_income' || categorySelect.value === 'other_expense';
-        if (isOther && !customCategoryInput.value.trim()) {
-            showError(customCategoryInput, 'Please enter a custom category');
-            isValid = false;
-        }
-
         if (!descriptionInput.value.trim()) {
             showError(descriptionInput, 'Please enter a description');
             isValid = false;
@@ -144,42 +89,77 @@ document.addEventListener('DOMContentLoaded', () => {
         return isValid;
     }
 
-    // Handle form submission
-    transactionForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+});
 
-        if (!validateForm()) {
-            return;
+
+document.addEventListener('DOMContentLoaded', async function () {
+    const name = sessionStorage.getItem("user_name");
+    if (name) {
+        try {
+            const user = { name };
+            const response = await fetch("/api/user/Data", {
+                method : "POST",
+                headers : { "Content-Type": "application/json" },
+                body : JSON.stringify(user)
+            })
+            if (!response.ok) {
+                console.log(response);
+            }
+            else {
+                const data = await response.json();
+                document.getElementById("username").textContent = data.name;
+                document.getElementById("userphoto").src = `data:image/jpeg;base64,${data.photo}`;
+            }
         }
+        catch (error) {
+            console.log(error);
+        }
+    }
+})
 
-        const isOther = categorySelect.value === 'other_income' || categorySelect.value === 'other_expense';
-        const finalCategory = isOther ? customCategoryInput.value.trim() : categorySelect.value;
+document.addEventListener("DOMContentLoaded", function () {
+    const typeButtons     = document.querySelectorAll(".type-selector button");
+    const transactionType = document.getElementById("transactionType");
+    typeButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            typeButtons.forEach(btn => {
+                btn.classList.remove("active");
+            })
+            this.classList.add("active");
+            transactionType.value = this.getAttribute("data-type");
+        })
+    })
+})
 
-        const transaction = {
-            id: Date.now(),
-            type: selectedType,
-            amount: parseFloat(amountInput.value),
-            category: finalCategory,
-            description: descriptionInput.value.trim(),
-            date: new Date().toISOString()
-        };
-
-        showNotification('Transaction added successfully!');
-        closeModal();
-        console.log('New transaction:', transaction);
-    });
-
-    function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        notification.textContent = message;
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
+document.getElementById("transactionForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const form            = event.target;
+    const name            = sessionStorage.getItem("user_name");  
+    const transactionType = document.getElementById("transactionType").value;
+    const amount          = document.getElementById("amount").value;
+    const description     = document.getElementById("description").value;
+    const data            = { name, transactionType, amount, description }
+    const transactionData = JSON.stringify(data);
+    try {
+        const respond = await fetch("/api/user/transaction", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: transactionData
+        });
+        const message = await respond.text();
+        if (respond.ok) {
+            alert(message);
+            form.reset();
+        } 
+        else {
+            alert(message);
+        }
+        if (sessionStorage.getItem("signUp_name")) {
+            sessionStorage.setItem("TransactionStatus","exist")
+        }
+    }
+    catch (error) {
+        console.log(error);
     }
 
-    // Initialize category options
-    updateCategoryOptions('expense');
-});
+})

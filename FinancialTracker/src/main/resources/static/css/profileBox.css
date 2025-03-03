@@ -1,7 +1,8 @@
-
-
 /* Profile trigger styles */
-
+.profile-trigger {
+    position: relative;
+    cursor: pointer;
+}
 /* Profile box styles */
 .profile-box {
     width: 300px;
@@ -13,7 +14,7 @@
     position: absolute;
     display: none;
     animation: slideDown 0.3s ease-out;
-    margin-left: -207px;
+    margin-left: -222px;
 }
 
 .profile-box.active {
@@ -90,6 +91,7 @@ button:hover {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

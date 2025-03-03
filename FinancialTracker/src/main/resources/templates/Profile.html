@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Form</title>
     <link rel="stylesheet" href="/css/Profile.css">
+
+    <script src="/js/Profile.js"></script>
 </head>
 <body>
 
@@ -27,7 +29,7 @@
                     <!-- Profile Image Section -->
                     <div class="profile-image-container">
                         <div class="profile-image-wrapper">
-                            <img id="profileImage" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200&h=200" alt="Profile">
+                            <img id="profileImage" src="/svg/Default.jpg" alt="Profile">
                             <label for="imageUpload" class="upload-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -44,7 +46,14 @@
                         <!-- Name Input -->
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" required placeholder="John Doe">
+                            <div class="input-icon">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="4"></circle>
+                                    <path d="M4 20c0-4 4-7 8-7s8 3 8 7"></path>
+                                </svg>
+                                <input type="text" id="name" required placeholder="Enter your name">
+                            </div>
                         </div>
 
                         <!-- Email Input -->
@@ -55,7 +64,22 @@
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
-                                <input type="email" id="email" required placeholder="john@example.com">
+                                <input type="email" id="email" required placeholder="Enter your mail">
+                            </div>
+                        </div>
+
+                        <!-- Balance -->
+                        <div class="form-group">
+                            <label for="expenses">Balance</label>
+                            <div class="input-icon">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 6h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path>
+                                    <path d="M12 10v4"></path>
+                                    <path d="M15 11v2"></path>
+                                    <path d="M9 11v2"></path>
+                                </svg>
+                                <input type="number" id="balance" required placeholder="Enter your balance">
                             </div>
                         </div>
 
@@ -67,7 +91,7 @@
                                     <line x1="12" y1="1" x2="12" y2="23"></line>
                                     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                                 </svg>
-                                <input type="number" id="income" required placeholder="5000">
+                                <input type="number" id="income" required placeholder="Enter your income">
                             </div>
                         </div>
 
@@ -81,7 +105,7 @@
                                     <path d="M15 11v2"></path>
                                     <path d="M9 11v2"></path>
                                 </svg>
-                                <input type="number" id="expenses" required placeholder="3000">
+                                <input type="number" id="expenses" required placeholder="Enter your expenses">
                             </div>
                         </div>
                     </div>
@@ -99,6 +123,57 @@
             </div>
         </div>
     </div>
-    <script src="/js/Profile.js"></script>
+
+    <script>
+        document.getElementById("profileForm").addEventListener("submit", async function(event){
+        event.preventDefault();
+        const old_name = sessionStorage.getItem("user_name");
+        const new_name = document.getElementById("name").value;
+        const mail     = document.getElementById("email").value;
+        const balance  = document.getElementById("balance").value;
+        const income   = document.getElementById("income").value;
+        const expenses = document.getElementById("expenses").value;
+        const image    = document.getElementById("imageUpload").files[0];
+
+        sessionStorage.removeItem("name");
+
+        //const profileData = {old_name,new_name,mail,income,expenses,image};
+        const formData = new FormData();
+        formData.append("old_name",old_name);
+        formData.append("new_name",new_name);
+        formData.append("mail",mail);
+        formData.append("balance", balance);
+        formData.append("income",income);
+        formData.append("expenses",expenses);
+        if(image){
+            formData.append("image", image);
+        }
+
+        try{
+            const response = await fetch("api/user/updateData", {
+                method  : "POST",
+                body    : formData
+            });
+            const message = await response.text();
+            if(!response.ok){
+                alert("fail to upload")
+            }
+            else {
+                alert("Profile upload success");
+                sessionStorage.setItem("user_name",new_name);
+                window.location.href="/Dashboard";
+            }
+
+        }    
+        catch (error) {
+            alert("Something is wrong with your credentials");
+            console.log(error);
+        }
+
+        });
+
+
+    </script>
+
 </body>
 </html>

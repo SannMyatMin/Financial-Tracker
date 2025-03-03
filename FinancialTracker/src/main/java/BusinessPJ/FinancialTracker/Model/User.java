@@ -33,7 +33,7 @@ public class User
     private String password;
 
     @Lob
-    @Column(name="Profile_photo")
+    @Column(name="Photo", columnDefinition="LONGBLOB", nullable=true)
     private byte[] photo;
 
     @Column(name="Joined_date")

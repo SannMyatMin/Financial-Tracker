@@ -53,13 +53,14 @@ DROP TABLE IF EXISTS `balance`;
 CREATE TABLE `balance` (
   `Balance_id` int NOT NULL AUTO_INCREMENT,
   `User_id` int NOT NULL,
+  `Balance` float NOT NULL,
   `Monthly_income` float NOT NULL,
-  `Monthly_expense` float NOT NULL,
-  `Net_balance` float NOT NULL,
+  `Monthly_expenses` float NOT NULL,
+  `Net_balances` float NOT NULL,
   PRIMARY KEY (`Balance_id`),
   KEY `User_id` (`User_id`),
   CONSTRAINT `balance_ibfk_1` FOREIGN KEY (`User_id`) REFERENCES `user` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +70,66 @@ CREATE TABLE `balance` (
 LOCK TABLES `balance` WRITE;
 /*!40000 ALTER TABLE `balance` DISABLE KEYS */;
 /*!40000 ALTER TABLE `balance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `financial_record`
+--
+
+DROP TABLE IF EXISTS `financial_record`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `financial_record` (
+  `Record_id` int NOT NULL AUTO_INCREMENT,
+  `User_id` int NOT NULL,
+  `Balance` float NOT NULL,
+  `Monthly_income` float NOT NULL,
+  `Monthly_expenses` float NOT NULL,
+  `Net_balance` float NOT NULL,
+  `Date` date NOT NULL,
+  PRIMARY KEY (`Record_id`),
+  KEY `User_id` (`User_id`),
+  CONSTRAINT `financial_record_ibfk_1` FOREIGN KEY (`User_id`) REFERENCES `user` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `financial_record`
+--
+
+LOCK TABLES `financial_record` WRITE;
+/*!40000 ALTER TABLE `financial_record` DISABLE KEYS */;
+/*!40000 ALTER TABLE `financial_record` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `transaction`
+--
+
+DROP TABLE IF EXISTS `transaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `transaction` (
+  `Transaction_id` int NOT NULL AUTO_INCREMENT,
+  `User_id` int NOT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `amount` float DEFAULT NULL,
+  `Date` date NOT NULL,
+  PRIMARY KEY (`Transaction_id`),
+  KEY `User_id` (`User_id`),
+  CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`User_id`) REFERENCES `user` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transaction`
+--
+
+LOCK TABLES `transaction` WRITE;
+/*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -83,10 +144,10 @@ CREATE TABLE `user` (
   `name` varchar(255) DEFAULT NULL,
   `mail` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `profile_photo` tinyblob,
+  `Photo` longblob,
   `Joined_date` date NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-20  9:16:29
+-- Dump completed on 2025-03-04  3:05:26

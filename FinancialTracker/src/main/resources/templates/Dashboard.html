@@ -23,6 +23,10 @@
           <img class="icon" src="svg/clipboard-add-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
           Add Transaction
       </button>
+        <button class="nav-item " onclick="window.location.href='Record'">
+          <img class="icon" src="svg/window.svg" alt="Icon" style="height: 30px; width: 30px;" />
+          Records
+        </button>
         <button class="nav-item" onclick="setActiveTab('reports')">
           <img class="icon" src="svg/report-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
           Reports
@@ -39,30 +43,31 @@
             type="text"
             placeholder="Search..."
             class="search-input"
-          />
+          hidden/>
         </div>
         <div class="profile"  >
           <span class="icon"><img src="svg/bell-svgrepo-com.svg" alt="Icon" style="height: 25px; width: 25px;"/></span>
           <div class="profile-trigger">
-          <img class="profile-pic" src="svg/default-photo.svg" alt="Icon" style="height: 30px; width: 30px;"/>
-          <span class="username"> John Doe</span>
+          <img class="profile-pic" id="userphoto" src="" alt="Icon" style="height: 30px; width: 30px;"/>
+          <span class="username" id="username"></span>
           </div>
         </div>
       </header>
- 
+    
+    
     <div class="profile-box" id="profileBox">
       <div class="profile-header">
-          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&auto=format&fit=crop&q=80" 
+          <img id="Userphoto" src="" 
                alt="Profile Picture" 
                class="profile-pic">
           <div class="profile-actions">
-              <button class="edit-btn">Edit</button>
+              <button class="edit-btn" onclick="window.location.href='Profile'">Edit</button>
               <button class="logout-btn">Logout</button>
           </div>
       </div>
       <div class="profile-info">
-          <h3 class="profile-name">John Doe</h3>
-          <p class="profile-email">john.doe@example.com</p>
+          <h3 class="profile-name" id="Username"></h3>
+          <p class="profile-email" id="usermail"></p>
       </div>
   </div>
 
@@ -73,64 +78,35 @@
         <div class="stats">
           <div class="stat-card">
             <div class="stat-header">
-              <span>Total Balance</span>
+              <span>Your Balance</span>
               <img class="s-icon" src="svg/us-dollar-coin-color-icon.svg" alt="Icon" style="height: 40px; width: 40px;"/>
             </div>
-            <h3>$24,562.00</h3>
-            <p class="stat-change green">+2.45%</p>
+            <h3 id="balance"></h3>
+            <p class="stat-change green" id="net_balance"></p>
           </div>
           <div class="stat-card">
             <div class="stat-header">
               <span>Monthly Income</span>
               <img class="s-icon" src="svg/money-notes-receiving-dollar-color-icon.svg" alt="Icon" style="height: 40px; width: 40px;"/>
             </div>
-            <h3>$8,350.00</h3>
-            <p class="stat-change green">+1.62%</p>
+            <h3 id="income"></h3>
+            <p class="stat-change green" id="net_income"></p>
           </div>
           <div class="stat-card">
             <div class="stat-header">
               <span>Monthly Expenses</span>
               <img class="s-icon" src="svg/dollar-money-circle.svg" alt="Icon" style="height: 40px; width: 40px;"/>
             </div>
-            <h3>$5,240.00</h3>
-            <p class="stat-change red">-0.82%</p>
+            <h3 id="expenses"></h3>
+            <p class="stat-change red" id="net_expenses"></p>
           </div>
         </div>
 
         <!-- Recent Transactions -->
         <div class="transactions">
           <h2>Recent Transactions</h2>
-          <div class="transaction">
-            <div class="transaction-info">
-              <img class="icon" src="svg/shopping-card-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
-              <div>
-                <p>Grocery Shopping</p>
-                <small>Today, 2:30 PM</small>
-              </div>
-            </div>
-            <span class="amount red">-120.50</span>
-          </div>
-          <div class="transaction">
-            <div class="transaction-info">
-              <img class="icon" src="svg/money-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;"/>
-              <div>
-                <p>Salary Deposit</p>
-                <small>Yesterday</small>
-              </div>
-            </div>
-            <span class="amount green">+3500.00</span>
-          </div>
-          <div class="transaction">
-            <div class="transaction-info">
-              <img class="icon" src="svg/rent-icon.svg" alt="Icon" style="height: 35px; width: 35px;"/>
-              <div>
-                <p>Rent Payment</p>
-                <small>Yesterday</small>
-              </div>
-            </div>
-            <span class="amount red">-1200.00</span>
-          </div>
         </div>
+        
       </section>
     </main>
   </div>
