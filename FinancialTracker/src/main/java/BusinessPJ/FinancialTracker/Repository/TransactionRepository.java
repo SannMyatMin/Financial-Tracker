@@ -18,7 +18,7 @@ public interface TransactionRepository extends JpaRepository<Transaction,Integer
                 Type AS type, Category As category, Description As description, Amount As amount, Date as date
                 FROM Transaction
                 WHERE User_id=:user_id
-                ORDER BY Date DESC
+                ORDER BY Transaction_id DESC
             """, nativeQuery = true)
     List<UserTransaction> getUserTransaction(@Param("user_id") Integer user_id);
 }

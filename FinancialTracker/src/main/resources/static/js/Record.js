@@ -31,22 +31,28 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const tableBody = document.querySelector(".Tbody");
                 tableBody.innerHTML = ""; // Clear existing rows
 
+                let i = 1;
                 transactions.forEach(transaction => {
                     const row = document.createElement("tr");
                     let rowClass = "";
+                    let type = "";
                     if (transaction.type === "income") {
                         rowClass = "status-paid";
+                        type = transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1);
                     } else if (transaction.type === "expenses") {
                         rowClass = "status-pending";
+                        type = transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1);
                     }
 
                     row.innerHTML = `
+                        <td>${i}</td>
                         <td>${transaction.category}</td>
                         <td>${transaction.description}</td> 
                         <td>$ ${transaction.amount}</td>
-                        <td class="${rowClass}">${transaction.type}</td>
+                        <td class="${rowClass}">${type}</td>
                         <td>${transaction.date}</td>
                     `;
+                    i++;
                     tableBody.appendChild(row);
                 });
             }

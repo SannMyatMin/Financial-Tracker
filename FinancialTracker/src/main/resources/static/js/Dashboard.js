@@ -40,6 +40,7 @@ async function getUserData() {
       document.getElementById("Username").textContent = data.name;
       document.getElementById("usermail").textContent = data.mail;
       document.getElementById("userphoto").src = `data:image/jpeg;base64,${data.photo}`;
+      document.getElementById("Userphoto").src = `data:image/jpeg;base64,${data.photo}`;
       document.getElementById("balance").textContent = "$ " + data.balance;
       document.getElementById("income").textContent = "$ " + data.income;
       document.getElementById("expenses").textContent = "$ " + data.expenses;
@@ -113,7 +114,6 @@ async function getUserData() {
         let amountClass, svg;  
       
         const loop_count = Math.min(3, Math.max(1,transactions.length))
-
         transactions.slice(0, loop_count).forEach(T => {
           const transactionDiv = document.createElement("div");
           transactionDiv.classList.add("transaction");
@@ -134,7 +134,7 @@ async function getUserData() {
                   <div class="transaction-info">
                       <img class="icon" src=${svg} alt="Icon" style="height: 30px; width: 30px;"/>
                       <div>
-                          <p>${T.category}</p>
+                          <p>${T.description}</p>
                           <small>${T.date}</small>
                       </div>
                   </div>
