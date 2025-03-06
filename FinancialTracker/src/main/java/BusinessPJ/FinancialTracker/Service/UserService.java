@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import BusinessPJ.FinancialTracker.DTOs.DashboardData;
+import BusinessPJ.FinancialTracker.DTOs.Udata;
 import BusinessPJ.FinancialTracker.DTOs.UserData;
 import BusinessPJ.FinancialTracker.Model.FinancialRecord;
 import BusinessPJ.FinancialTracker.Model.User;
@@ -39,6 +40,21 @@ public class UserService
     public User getUserByName(String name) {
         Optional<User> user = userRepo.findByName(name);
         return user.get();
+    }
+
+    public User getUserByMail(String mail) {
+        Optional<User> User = userRepo.findByMail(mail);
+        return User.get();
+    }
+
+    public boolean isPasswordCorrect(String mail, String password) {
+        User user = getUserByMail(mail);
+        return bcryptEncoder.matches(password, user.getPassword());
+    }
+    
+    public Udata getUserNameMail(String mail) {
+        Optional<Udata> u_data = userRepo.getUserNameMail(mail);
+        return u_data.get();
     }
 
     public void updateUser(String old_name, String new_name, String mail, byte[] imageByte) {

@@ -18,6 +18,15 @@
     height: 60px; /* Reduced height for a more compact navbar */
 }
 
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -8px;
+    margin-left: 8px;
+    display: block;
+    min-height: 14px;
+}
+
 .logo {
     display: flex;
     align-items: center; /* Center align the logo and title vertically */
@@ -48,7 +57,7 @@ body {
 .form {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Slightly reduced gap */
+    gap: 10px; /* Slightly reduced gap */
     background-color: #ffffff;
     padding: 25px; /* Reduced padding for a smaller form */
     width: 100%;
@@ -78,6 +87,7 @@ body {
     height: 70%;
     font-size: 14px; /* Slightly reduced font size for input text */
 }
+
 
 /* Focus Styles */
 .input:focus {

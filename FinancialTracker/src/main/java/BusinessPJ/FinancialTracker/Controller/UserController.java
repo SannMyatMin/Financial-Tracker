@@ -33,6 +33,22 @@ public class UserController
     @Autowired
     private TransactionService transactionService;
 
+
+    @PostMapping("/signIn")
+    public ResponseEntity<Object> signIn(@RequestBody Map<String, String> signInData) {
+        String mail     = signInData.get("mail");
+        String password = signInData.get("password");
+        if (!userService.usedMail(mail)) {
+            return ResponseEntity.status(401).body("Mail not found");
+        }
+        else if(!userService.isPasswordCorrect(mail, password)) {
+            return ResponseEntity.status(401).body("Password incorrect");
+        }
+        else {
+            return ResponseEntity.ok(userService.getUserNameMail(mail));
+        } 
+    }
+
     @PostMapping("/signup")
     public ResponseEntity<Object> signUp(@RequestBody Map<String,String> signUpData) {
         String name = signUpData.get("name");
