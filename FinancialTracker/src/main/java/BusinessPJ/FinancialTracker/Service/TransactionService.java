@@ -23,8 +23,8 @@ public class TransactionService
     private TransactionCategorizer categorizer;
 
     public void addTransaction(String name, String transactionType, Float amount, String description) {
-        User user = userService.getUserByName(name);
-        String category = categorizer.categorizeTransaction(description);
+        User user                   = userService.getUserByName(name);
+        String category             = categorizer.CategorizeTransaction(transactionType,description);
         Transaction new_transaction = new Transaction();
         new_transaction.setUser_id(user);
         new_transaction.setCategory(category);

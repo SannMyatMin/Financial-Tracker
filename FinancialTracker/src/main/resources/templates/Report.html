@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinanceTracker-Reports</title>
+  <link rel="stylesheet" href="/css/Report.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="Report.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span><img class="icon" src="svg/piggy-bank-svgrepo-com.svg" alt="Icon"
+            style="height: 40px; width: 40px;" />FinanceTracker</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item " onclick="window.location.href='Dashboard'">
+          <img class="icon" src="svg/document-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;" />
+          Dashboard
+        </button>
+        <button class="nav-item" onclick="window.location.href='Transaction'">
+          <img class="icon" src="svg/clipboard-add-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;" />
+          Add Transaction
+        </button>
+        <button class="nav-item active" onclick="window.location.href='Record'">
+          <img class="icon" src="svg/window.svg" alt="Icon" style="height: 30px; width: 30px;" />
+          Records
+        </button>
+        <button class="nav-item" >
+          <img class="icon" src="svg/report-svgrepo-com.svg" alt="Icon" style="height: 30px; width: 30px;" />
+          Reports
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="profile">
+          <span class="icon"><img src="svg/bell-svgrepo-com.svg" alt="Icon" style="height: 25px; width: 25px;" /></span>
+          <div class="profile-trigger">
+            <img class="profile-pic" id="userphoto" src="" alt="Icon" style="height: 30px; width: 30px;" />
+            <span class="username" id="username"></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Report Content -->
+      <section class="content">
+        <div class="report-header">
+          <h2>Financial Reports</h2>
+          <div class="date-filter">
+            <input type="date" id="startDate" />
+            <button onclick="filterReports()">Apply Filter</button>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts">
+          <!-- Income vs Expenses (Jan to Dec) -->
+          <div class="chart-container">
+            <h3>Income vs Expenses (Jan to Dec)</h3>
+            <canvas id="incomeExpenseChartJanToDec"></canvas>
+          </div>
+
+          <!-- Spending by Category (Monthly) -->
+          <div class="chart-container">
+            <h3>Spending by Category (This Month)</h3>
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Sample data for Income vs Expenses chart (Jan to Dec)
+    const incomeExpenseDataJanToDec = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // Months from Jan to June
+      datasets: [
+        {
+          label: 'Income',
+          data: [5000, 6000, 5500, 7000, 8000, 7500, 7000, 7200, 6800, 7500, 8000, 8500], // Income data for Jan to June
+          backgroundColor: 'rgba(75, 192, 192, 0.2)', // Light blue for income
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+        },
+        {
+          label: 'Expenses',
+          data: [3000, 4000, 3500, 4500, 5000, 4800, 4500, 4700, 4300, 5000, 5200, 5500], // Expense data for Jan to June
+          backgroundColor: 'rgba(255, 99, 132, 0.2)', // Light red for expenses
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1,
+        },
+      ],
+    };
+
+    // Sample data for Spending by Category chart (this month)
+    const categoryData = {
+      labels: ['Food & Groceries', 'Housing', 'Transportation', 'Entertainment', 'Utilities', 'Health & Fitness', 'Shopping', 'Education', 'Travel', 'Business & Works', 'Others'], // Categories
+      datasets: [
+        {
+          label: 'Spending',
+          data: [400, 1200, 300, 300, 400, 159, 200, 200, 100, 0, 20], // Spending amounts for each category
+          backgroundColor: ['#A3B18A', '#C3B1E1', '#ADC178', '#E9C46A', '#B5C0D0', '#E76F51', '#A8DADC', '#D4A373', '#B5838D', '#8ECae6', '#A2D2FF'],
+        },
+      ],
+    };
+
+    // Initialize Income vs Expenses chart (Jan to Dec)
+    const incomeExpenseChartJanToDec = new Chart(document.getElementById('incomeExpenseChartJanToDec'), {
+      type: 'bar', // Bar chart for Income vs Expenses
+      data: incomeExpenseDataJanToDec,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    // Initialize Spending by Category chart
+    const categoryChart = new Chart(document.getElementById('categoryChart'), {
+      type: 'pie', // Pie chart for Spending by Category
+      data: categoryData,
+    });
+  </script>
+</body>
+
+</html>

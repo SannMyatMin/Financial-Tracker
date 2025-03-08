@@ -53,4 +53,10 @@ public class Directory
     {
         return "Record";
     }
+
+    @GetMapping("/Report")
+    public String Report() {
+        return "Report";
+    }
+
 }

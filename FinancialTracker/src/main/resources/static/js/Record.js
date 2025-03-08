@@ -64,15 +64,15 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const tableBody = document.querySelector(".Tbody");
                 const row = document.createElement("tr")
                 row.innerHTML = `
-                <td> empty </td>
+                <td> --- </td>
                 <td>
-                <div style="padding-left: 10px;"> empty </td></div>
+                <div style="padding-left: 10px;"> --- </td></div>
                 <td>
-                <div style="padding-left: 20px;"> empty </td></div>
+                <div style="padding-left: 20px;"> --- </td></div>
                 <td>
-                <div style="text-align: left;"> empty </td></div>
-                <td> empty </td>
-                <td> empty </td> `;
+                <div style="text-align: left;"> --- </td></div>
+                <td> --- </td>
+                <td> --- </td> `;
                 tableBody.appendChild(row);
             }
 });
