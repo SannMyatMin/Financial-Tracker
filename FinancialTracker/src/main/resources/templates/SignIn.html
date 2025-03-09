@@ -110,6 +110,9 @@
         else{
           const user_data = await response.json();
           sessionStorage.setItem("user_name",user_data.name);
+          if (sessionStorage.getItem("user_name")) {
+            sessionStorage.setItem("TransactionStatus", "exist");
+          }
           alert("SignIn success")
           window.location.href="/Dashboard";
         }

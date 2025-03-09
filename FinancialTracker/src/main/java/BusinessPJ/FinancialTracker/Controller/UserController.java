@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
+import java.sql.Date;
 import java.util.Map;
 
 import BusinessPJ.FinancialTracker.Model.User;
@@ -85,8 +86,7 @@ public class UserController
             if (photo == null || photo.isEmpty()) {
                 InputStream inputS = getClass().getResourceAsStream("Default.jpg");
                 imageByte = inputS.readAllBytes();
-            }
-            else {
+            } else {
                 imageByte = photo.getBytes();
             }
             userService.updateUser(old_name, new_name, mail, imageByte);
@@ -95,8 +95,31 @@ public class UserController
             recordService.addRecord(user, balance, income, expenses);
             recordService.addRecord(user, balance, income, expenses);
             return ResponseEntity.ok("success");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Server error: " + e.getMessage());
         }
-        catch (Exception e) {
+    }
+
+    @PostMapping("/fixData")
+    public ResponseEntity<String> profileFix(@RequestParam("old_name") String old_name,
+            @RequestParam("new_name") String new_name,
+            @RequestParam("mail") String mail,
+            @RequestParam(value = "image", required = false) MultipartFile photo,
+            @RequestParam("balance") Float balance,
+            @RequestParam("income") Float income,
+            @RequestParam("expenses") Float expenses) {
+        byte[] imageByte;
+        try {
+            if (photo == null || photo.isEmpty()) {
+                InputStream inputS = getClass().getResourceAsStream("Default.jpg");
+                imageByte = inputS.readAllBytes();
+            } else {
+                imageByte = photo.getBytes();
+            }
+            userService.updateUser(old_name, new_name, mail, imageByte);
+            balanceService.updateUserBalance(new_name, balance, income, expenses);
+            return ResponseEntity.ok("success");
+        } catch (Exception e) {
             return ResponseEntity.status(500).body("Server error: " + e.getMessage());
         }
     }
@@ -123,18 +146,30 @@ public class UserController
             balanceService.updateBalance(name, transactionType, amount);
             return ResponseEntity.ok("Transaction added sucessfully");
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(401).body("Fail to add");
         }
     }
-
     
     @PostMapping("/getTransactions")
-    public ResponseEntity<Object> getTransactions(@RequestBody Map<String,String> user) {
+    public ResponseEntity<Object> getTransactions(@RequestBody Map<String, String> user) {
         String name = user.get("name");
         try {
             return ResponseEntity.ok(transactionService.getTransaction(name));
+        } catch (Exception e) {
+            return ResponseEntity.status(401).body("Fail");
+        }
+    }
+    
+    @PostMapping("/getRecords")
+    public ResponseEntity<Object> getRecordOfUser(@RequestBody Map<String, String> user) {
+        String name = user.get("name");
+        try{
+            User c_user = userService.getUserByName(name);
+            return ResponseEntity.ok(recordService.getRecordsOfUser(c_user));
         }
         catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(401).body("Fail");
         }
     }

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import BusinessPJ.FinancialTracker.Model.Balance;
+import BusinessPJ.FinancialTracker.DTOs.Records;
 import BusinessPJ.FinancialTracker.Model.FinancialRecord;
 import BusinessPJ.FinancialTracker.Model.User;
 
@@ -52,4 +52,13 @@ public interface FinancialRecordRepository extends JpaRepository<FinancialRecord
             """, nativeQuery = true)
     Float getLastMonthTotalExpenses(@Param("id") Integer id);
 
+    @Query(value="""
+                     SELECT Balance As balance,
+                            Monthly_income As monthly_income,
+                            Monthly_expenses As monthly_expenses,
+                            Net_balance As net_balance,
+                            Date As date            
+                     FROM Financial_record WHERE User_id=:id ORDER BY Date ASC LIMIT 18446744073709551615 OFFSET 1
+                """, nativeQuery = true)
+    List<Records> getRecordsOfUser(@Param("id") Integer id);
 }

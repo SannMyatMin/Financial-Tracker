@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             console.log(error);
         }
     }
+    
     if (!sessionStorage.getItem("TransactionStatus")) {
                 const tableBody = document.querySelector(".Tbody");
                 const row = document.createElement("tr")

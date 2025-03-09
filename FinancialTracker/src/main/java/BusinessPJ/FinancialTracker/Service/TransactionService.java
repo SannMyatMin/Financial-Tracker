@@ -31,7 +31,8 @@ public class TransactionService
         new_transaction.setType(transactionType);
         new_transaction.setAmount(amount);
         new_transaction.setDescription(description);
-        new_transaction.setDate(Date.valueOf(LocalDate.now()));
+        //new_transaction.setDate(Date.valueOf(LocalDate.now()));
+        new_transaction.setDate(Date.valueOf("2025-03-08"));
         transactionRepo.save(new_transaction);
     }
 

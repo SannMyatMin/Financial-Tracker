@@ -81,8 +81,14 @@ body {
 
 /* Header */
 .header {
+    position: -webkit-sticky;
+        /* For Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
     display: flex;
-    height: 40px;
+    min-height: 40px;
     /* Use min-height instead of height */
     justify-content: flex-end;
     /* Align profile to the right */
@@ -144,17 +150,22 @@ body {
 .charts {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     /* Add space between the bar chart and pie chart */
-    max-width: 900px;
+    max-width: 1030px;
     /* Limit the combined width of the charts */
     margin: 0 auto;
+        height: 500px;
+            /* Adjust as needed */
+            overflow: hidden;
+            /* Prevent excess content */
     /* Center the charts */
 }
 
 .chart-container {
     background: white;
-    padding: 20px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -169,19 +180,11 @@ body {
 #incomeExpenseChartJanToDec {
     width: 100%;
     /* Ensure the bar chart takes full width */
-    height: 300px;
+    height: 440px !important;
+        /* Reduce the canvas height */
     /* Reduce the height of the bar chart */
 }
 
-/* Pie Chart Container */
-#categoryChart {
-    max-width: 400px;
-    /* Limit the width of the pie chart */
-    margin: 0 auto;
-    /* Center the pie chart */
-    height: 500px;
-    /* Set a fixed height for the pie chart */
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -195,8 +198,4 @@ body {
         /* Further reduce the height on smaller screens */
     }
 
-    #categoryChart {
-        height: 250px;
-        /* Reduce the height of the pie chart on smaller screens */
-    }
 }

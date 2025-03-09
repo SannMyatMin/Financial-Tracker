@@ -155,7 +155,7 @@ document.getElementById("transactionForm").addEventListener("submit", async func
             alert(message);
         }
         if (sessionStorage.getItem("user_name")) {
-            sessionStorage.setItem("TransactionStatus", "exist");
+            sessionStorage.setItem("TransactionStatus","exist");
         }
     }
     catch (error) {

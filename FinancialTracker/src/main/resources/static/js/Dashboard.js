@@ -150,4 +150,11 @@ async function getUserData() {
 }
 document.addEventListener('DOMContentLoaded', getUserData);
 
+function logout() {
+  sessionStorage.clear();
+  fetch('/logout', { method: "GET" })
+    .then(response => { window.location.href = "/home" })
+    .catch(error => console.log(error));
+}
+
   

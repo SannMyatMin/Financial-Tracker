@@ -6,8 +6,9 @@ body {
   
   
   .container {
-    display: flex;
-    height: 100vh;
+      display: flex;
+        height: 100vh;
+        overflow: hidden;
   }
   
   /* Sidebar */
@@ -77,8 +78,14 @@ body {
   
   /* Header */
 .header {
-  display: flex;
-  height: 40px; /* Use min-height instead of height */
+      position: -webkit-sticky;
+      /* For Safari */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+  
+      display: flex;
+      min-height: 40px;/* Use min-height instead of height */
   justify-content: flex-end; /* Align profile to the right */
   align-items: center; /* Center content vertically */
   padding: 15.72px;

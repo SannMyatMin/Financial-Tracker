@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import BusinessPJ.FinancialTracker.DTOs.Records;
 import BusinessPJ.FinancialTracker.Model.Balance;
 import BusinessPJ.FinancialTracker.Model.FinancialRecord;
 import BusinessPJ.FinancialTracker.Model.User;
@@ -38,6 +39,10 @@ public class FinancialResordService
         new_record.setNet_balance(income - expenses);
         new_record.setDate(Date.valueOf(LocalDate.now()));
         recordRepo.save(new_record);
+    }
+
+    public List<Records> getRecordsOfUser(User user) {
+        return recordRepo.getRecordsOfUser(user.getId());
     }
 
     @Scheduled(cron = "0 0 0 1 * ?")
