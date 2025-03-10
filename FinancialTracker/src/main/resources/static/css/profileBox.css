@@ -14,7 +14,8 @@
     position: absolute;
     display: none;
     animation: slideDown 0.3s ease-out;
-    margin-left: -222px;
+    margin-top: 10px;
+    margin-left: -232px;
 }
 
 .profile-box.active {
