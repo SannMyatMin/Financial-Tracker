@@ -2,7 +2,9 @@
 # Financial Tracker 💸
 
 Track personal financial data. 
+
 Provide user authentication.
+
 Save each transactions of user and categorize them in to suitable titles.
 
 Include :
