@@ -1,8 +1,7 @@
 
 # Financial Tracker 💸
 
-Track personal financial data.  Provide user authentication.  Save each transactions of user and categorize them in to suitable titles ![GojoSmileSatoruGojoGIF](https://github.com/user-attachments/assets/6dd9f715-ddf4-4a47-88c3-62ef2aa45799)
-.
+Track personal financial data.  Provide user authentication.  Save each transactions of user and categorize them in to suitable titles.
 
 Include :
 
