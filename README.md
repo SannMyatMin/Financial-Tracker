@@ -3,13 +3,13 @@
 
 Track personal financial data.  Provide user authentication.  Save each transactions of user and categorize them in to suitable titles.
 
-Include :
+##Include :
 
 1.Calculation of increment and decrement in the balance of user after each transaction
 
 2.Calculate and updates the monthly income and expenses of user after each month
   
-Provide :
+##Provide :
 
 1.Visualized dashboard of current balance, latest monthly income and expenses results, and recent transactions
 
