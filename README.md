@@ -1,14 +1,13 @@
-
 # Financial Tracker 💸
 
-Track personal financial data.  Provide user authentication.  Save each transactions of user and categorize them in to suitable titles.
+Track personal financial data. Provide user authentication. Save each transactions of user and categorize them in to suitable titles.
 
 ## Include :
 
 1.Calculation of increment and decrement in the balance of user after each transaction
 
 2.Calculate and updates the monthly income and expenses of user after each month
-  
+
 ## Provide :
 
 1.Visualized dashboard of current balance, latest monthly income and expenses results, and recent transactions
@@ -19,8 +18,14 @@ Track personal financial data.  Provide user authentication.  Save each transact
 
 ## Used language 🍵
 
-Frontend  : html,css,js
+Frontend : html,css,js
 
-Backend  : java,Spring boot
+Backend : java,Spring boot
 
 Database : mysql
+
+## Images 🖼️
+
+![Result Image](img/dashboard.png)
+![Result Image](img/dashboard2.png)
+![Result Image](img/transaction.png)
